@@ -7,3 +7,17 @@ puts "Exercise 4"
 puts "----------"
 
 # Your code goes here ...
+surrey = Store.create(name: "Surrey", annual_revenue: 224000, mens_apparel: false, womens_apparel: true)
+whistler = Store.create(name: "Whistler", annual_revenue: 1900000, mens_apparel: true, womens_apparel: false)
+yaletown = Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
+puts "------Mens'-------"
+@mens_stores = Store.where(["mens_apparel = :value", { value: true}])
+@mens_stores.each {|store| puts "store: #{store.name}, annual_revenue: #{store.annual_revenue}"}
+
+@womens_stores = Store.where(["womens_apparel = :value and annual_revenue < :revenue", { value: true,revenue: 1000000 }])
+puts "------Womens'-------"
+@womens_stores.each {|store| puts "store: #{store.name}, annual_revenue: #{store.annual_revenue}"}
+
+
+
+
