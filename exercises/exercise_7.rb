@@ -10,3 +10,10 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "input a store name"
+example_store = $stdin.gets.chomp
+
+store5 = Store.create(name: example_store)
+
+puts "-----errors----"
+puts store5.errors.full_messages
